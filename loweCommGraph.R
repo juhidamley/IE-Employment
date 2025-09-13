@@ -43,7 +43,7 @@ commutePlot <- ggplot(data=commuteTimes, mapping=aes(x=Region, y=Commute, fill=R
                                rgb(158, 124, 10, maxColorValue = 255), 
                                rgb(124, 106, 85, maxColorValue = 255))) +
   # Displays the bar totals
-  geom_text(aes(label = Commute, vjust = -0.5)) +
+  geom_text(aes(label = round(Commute, 2), vjust = -0.5)) +
   # Remove legend as it would be redundant and adds padding around the whitespace
   theme(legend.position = "none",
         plot.margin = unit(c(1,1,1, 1), "cm")) +
@@ -54,3 +54,4 @@ commutePlot <- ggplot(data=commuteTimes, mapping=aes(x=Region, y=Commute, fill=R
 
 # Creates image file
 ggsave("loweCommute.png", plot = commutePlot)
+
